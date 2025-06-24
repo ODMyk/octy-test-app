@@ -1,9 +1,9 @@
-import {useTheme} from '@/theme';
-import {rem} from '@/theme/rem';
-import {StyleSheet} from 'react-native';
+import { useTheme } from '@/theme';
+import { rem } from '@/theme/rem';
+import { StyleSheet } from 'react-native';
 
 export const useStyles = () => {
-  const {Colors} = useTheme();
+  const { Colors } = useTheme();
 
   return StyleSheet.create({
     container: {

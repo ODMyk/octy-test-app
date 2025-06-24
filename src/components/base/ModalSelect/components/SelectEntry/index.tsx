@@ -1,16 +1,16 @@
-import {CheckIcon} from '@/assets/icons/Check';
-import {Typography} from '@/components/base/Typography';
-import {BUTTON_ACTIVE_OPACITY} from '@/constants/button';
-import {TouchableOpacity} from 'react-native';
-import {useStyles} from './styles';
+import { CheckIcon } from '@/assets/icons/Check';
+import { Typography } from '@/components/base/Typography';
+import { BUTTON_ACTIVE_OPACITY } from '@/constants/button';
+import { TouchableOpacity } from 'react-native';
+import { useStyles } from './styles';
 
-interface SelectEntryProps<U, T extends {title: string; value: U}> {
+interface SelectEntryProps<U, T extends { title: string; value: U }> {
   item: T;
   isSelected: boolean;
   onPress: (value: U) => void;
 }
 
-export const SelectEntry = <U, T extends {title: string; value: U}>({
+export const SelectEntry = <U, T extends { title: string; value: U }>({
   item,
   isSelected,
   onPress,

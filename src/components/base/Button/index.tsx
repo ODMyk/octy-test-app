@@ -1,6 +1,6 @@
-import {StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
-import {Typography} from '../Typography';
-import {useStyles} from './styles';
+import { StyleProp, TouchableOpacity, ViewStyle } from 'react-native';
+import { Typography } from '../Typography';
+import { useStyles } from './styles';
 
 interface ButtonProps extends React.PropsWithChildren {
   style?: StyleProp<ViewStyle>;
@@ -8,7 +8,7 @@ interface ButtonProps extends React.PropsWithChildren {
   disabled?: boolean;
 }
 
-export const Button = ({children, style, onPress, disabled}: ButtonProps) => {
+export const Button = ({ children, style, onPress, disabled }: ButtonProps) => {
   const styles = useStyles();
 
   return (
