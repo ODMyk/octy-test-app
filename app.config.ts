@@ -3,7 +3,7 @@ import 'dotenv/config';
 export default {
   expo: {
     name: 'Currency Rates',
-    slug: 'octi-test-app',
+    slug: 'octy-test-app',
     version: '1.0.0',
     orientation: 'portrait',
     icon: './src/assets/images/icon.png',
