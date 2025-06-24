@@ -194,11 +194,17 @@ class ApiClient {
       });
     }
 
-    const response = await fetch(
-      `http://data.fixer.io/api/latest?access_key=${API_KEY}`,
-    );
-    const data = (await response.json()) as ApiResponse;
-    return { ...data, fetchedAt: Date.now() };
+    try {
+      const response = await fetch(
+        `https://data.fixer.io/api/latest?access_key=${API_KEY}`,
+      );
+      const data = (await response.json()) as ApiResponse;
+      console.log('Api call successfull');
+      return { ...data, fetchedAt: Date.now() };
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   }
 }
 
