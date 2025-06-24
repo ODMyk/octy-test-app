@@ -1,7 +1,5 @@
 # Currency Converter App
 
-_(Add screenshots or a GIF of your app here!)_
-
 ## 📚 Project Overview
 
 This is a modern mobile currency converter application built with React Native. It allows users to view live exchange rates, select a preferred base currency, manage a list of favorite currencies, and perform quick conversions. The app is designed with a focus on a smooth user experience, offline capabilities, and clear data presentation.
@@ -183,7 +181,7 @@ Follow these steps to get the project up and running on your local machine.
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/ODMyk/octi-test-app.git
+   git clone https://github.com/ODMyk/octy-test-app.git
    cd currency-converter-app
    ```
 
