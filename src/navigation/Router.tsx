@@ -1,53 +1,33 @@
-import { GearIcon } from '@/assets/icons/Gear';
-import { HeartIcon } from '@/assets/icons/Heart';
-import { SearchIcon } from '@/assets/icons/Search';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Disclaimer } from '@/components/custom/Disclaimer';
+import { RateDetailsScreen } from '@/screens/RateDetails';
 import { NavigationContainer } from '@react-navigation/native';
-import { ColorValue } from 'react-native';
-import { SvgProps } from 'react-native-svg';
-import { TabsParamList, navigationRef } from '.';
-import { CalculatorScreen } from '../screens/Calculator';
-import { FavoritesScreen } from '../screens/Favorites';
-import { HomeScreen } from '../screens/Home';
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationOptions,
+} from '@react-navigation/native-stack';
+import { Platform } from 'react-native';
+import { MainStackParamList, navigationRef } from '.';
+import { TabsNavigator } from './Tabs';
 
-const MainNavigator = createBottomTabNavigator<TabsParamList>();
+const MainNavigator = createNativeStackNavigator<MainStackParamList>();
 
-const iconWrapper = (Icon: (props: SvgProps) => React.ReactElement) => {
-  const WrappedIcon = ({
-    color,
-    size,
-  }: {
-    color: ColorValue;
-    size: number;
-  }) => <Icon height={size} width={size} color={color} />;
-  return WrappedIcon;
+const options: NativeStackNavigationOptions = {
+  headerShown: false,
+  animation: Platform.OS === 'ios' ? 'simple_push' : 'slide_from_right',
 };
 
 export const Router = () => {
   return (
-    <NavigationContainer ref={navigationRef}>
-      <MainNavigator.Navigator
-        screenOptions={{ headerShown: false }}
-        initialRouteName="Home">
-        <MainNavigator.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            title: 'Explore',
-            tabBarIcon: iconWrapper(SearchIcon),
-          }}
-        />
-        <MainNavigator.Screen
-          name="Favorites"
-          component={FavoritesScreen}
-          options={{ title: 'Favorites', tabBarIcon: iconWrapper(HeartIcon) }}
-        />
-        <MainNavigator.Screen
-          name="Calculator"
-          component={CalculatorScreen}
-          options={{ title: 'Calculator', tabBarIcon: iconWrapper(GearIcon) }}
-        />
-      </MainNavigator.Navigator>
-    </NavigationContainer>
+    <>
+      <NavigationContainer ref={navigationRef}>
+        <MainNavigator.Navigator
+          screenOptions={options}
+          initialRouteName="Tabs">
+          <MainNavigator.Screen name="Tabs" component={TabsNavigator} />
+          <MainNavigator.Screen name="Rate" component={RateDetailsScreen} />
+        </MainNavigator.Navigator>
+      </NavigationContainer>
+      <Disclaimer />
+    </>
   );
 };
