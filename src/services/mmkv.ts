@@ -1,16 +1,13 @@
-import {EXPO_APP_OWNERSHIP} from '@/constants/storage';
-import Constants from 'expo-constants';
-import {MMKV} from 'react-native-mmkv';
-import {MMKVInterface} from 'react-native-mmkv/lib/typescript/src/Types';
-
-const isRunningInExpoGo = Constants.appOwnership === EXPO_APP_OWNERSHIP;
+import { isRunningInExpoGo } from '@/constants/environment';
+import { MMKV } from 'react-native-mmkv';
+import { MMKVInterface } from 'react-native-mmkv/lib/typescript/src/Types';
 
 class DummyMMKV implements MMKVInterface {
   size = 0;
   isReadOnly = false;
   private map: Record<string, string | number | boolean | ArrayBuffer> = {};
   addOnValueChangedListener(_onValueChanged: (key: string) => void) {
-    return {remove: () => {}};
+    return { remove: () => {} };
   }
   contains(key: string): boolean {
     return key in this.map;
