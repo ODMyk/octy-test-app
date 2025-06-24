@@ -1,10 +1,12 @@
+import 'dotenv/config';
+
 export default {
   expo: {
-    name: 'octi-test-app',
-    slug: 'Currency Rates',
+    name: 'Currency Rates',
+    slug: 'octi-test-app',
     version: '1.0.0',
     orientation: 'portrait',
-    icon: './assets/images/icon.png',
+    icon: './src/assets/images/icon.png',
     scheme: 'octitestapp',
     userInterfaceStyle: 'automatic',
     newArchEnabled: true,
@@ -12,8 +14,9 @@ export default {
       supportsTablet: true,
     },
     android: {
+      package: 'com.dmyko.CurrencyRates',
       adaptiveIcon: {
-        foregroundImage: './assets/images/adaptive-icon.png',
+        foregroundImage: './src/assets/images/adaptive-icon.png',
         backgroundColor: '#ffffff',
       },
       edgeToEdgeEnabled: true,
@@ -22,7 +25,7 @@ export default {
       [
         'expo-splash-screen',
         {
-          image: './assets/images/splash-icon.png',
+          image: './src/assets/images/splash-icon.png',
           imageWidth: 200,
           resizeMode: 'contain',
           backgroundColor: '#ffffff',
@@ -32,6 +35,9 @@ export default {
     ],
     experiments: {
       typedRoutes: true,
+    },
+    extras: {
+      API_KEY: process.env.API_KEY,
     },
   },
 };
